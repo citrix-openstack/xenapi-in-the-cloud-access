@@ -2,6 +2,8 @@
 
 Scripts to access a clouded xenapi hypervisor, and its guests
 
+First, make sure, that you copied jenkins' key to this directory, as `jenins.pem`.
+
 # Set your IP address
 
     ./set_host.sh <public ip>
