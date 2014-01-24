@@ -1,0 +1,17 @@
+Host *
+StrictHostKeyChecking no
+UserKnownHostsFile /dev/null
+
+Host domu
+HostName @PUBIP@
+User jenkins
+KeepAlive yes
+ServerAliveInterval 15
+IdentityFile @THISDIR@/jenkins.pem
+
+Host domzero
+HostName 192.168.33.2
+ProxyCommand ssh -F @THISDIR@/ssh_config domu /bin/nc %h %p 2>/dev/null
+IdentityFile @THISDIR@/domzero.pem
+ServerAliveInterval 15
+User root
